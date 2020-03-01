@@ -18,10 +18,10 @@ else
 
 		if [[ "$model" == "" ]]; then
 			echoc.sh "Creating a new AutoLatex project..." purple bold
-			touch Evn.xml
+			touch Env.xml
 			touch Structure.xml
 			touch README.md
-			mkdir Document
+			mkdir Documents
 			mkdir Target
 			cd Target
 			# pictures, tableTex and algorithmTex
@@ -36,6 +36,11 @@ else
 			cp ${templatePath} ${fullPath}
 			tar -zxvf ${model}.tar.gz
 			rm ${model}.tar.gz
+			# -f 参数判断 $file 是否存在
+			clsPath=${libraryPath}/${model}.cls
+			if [ -f "$clsPath" ]; then
+			 cp ${clsPath} ${fullPath}/Target
+			fi
 		fi
 
 		# initialize git
