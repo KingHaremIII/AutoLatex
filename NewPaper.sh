@@ -13,21 +13,11 @@ else
 	else
 		fullPath=${path}/${nameProject}
 		cd ${path}
-		abPath=$(dirname $(readlink -f $0))
 		mkdir ${nameProject}
 		cd ${nameProject}
-		# initialize git
-		which "git" > /dev/null
-		if [ $? -eq 0 ]
-		then
-		    git init
-		    cp ${AutoLatex_HOME}/library/.gitignore .
-		else
-		    echo "git command not exist"
-		    echoc.sh "Your PC may not install git so you need to control version by yourself or initialize git manually. " red
-		fi
 
 		if [[ "$model" == "" ]]; then
+			echoc.sh "Creating a new AutoLatex project..." purple bold
 			touch Evn.xml
 			touch Structure.xml
 			touch README.md
@@ -38,10 +28,28 @@ else
 			mkdir Resources
 			touch ref.bib
 		else
+			echoc.sh "Creating a AutoLatex project from library..." purple bold
 			# Copy the half-completed project from library
-			cp ${AutoLatex_HOME}/library/${mdoel}.tar.gz .
-			tar -zx ${model.tar.gz}
+			libraryPath=${AutoLatex_HOME}/library
+			templatePath=${libraryPath}/${model}.tar.gz
+			echo ${templatePath}
+			cp ${templatePath} ${fullPath}
+			tar -zxvf ${model}.tar.gz
 			rm ${model}.tar.gz
+		fi
+
+		# initialize git
+		which "git" > /dev/null
+		if [ $? -eq 0 ]
+		then
+			cd ${fullPath}
+		    git init
+		    cp ${AutoLatex_HOME}/library/.gitignore .
+		    git add .
+		    git commit -m "Started a new AutoLatex project"
+		else
+		    echo "git command not exist"
+		    echoc.sh "Your PC may not install git so you need to control version by yourself or initialize git manually. " red
 		fi
 
 		# notice the user
@@ -55,7 +63,6 @@ else
 		fi
 
 		# show structure
-		cd ${abPath}
-		tree ${nameProject}
+		tree ${fullPath}
 	fi
 fi

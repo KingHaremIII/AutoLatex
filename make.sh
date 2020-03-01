@@ -5,7 +5,16 @@
 file=.bashrc
 path=~
 
-abPath=$(dirname $(readlink -f $0))abPath=$(dirname $(readlink -f $0))
+which "echoc.sh" > /dev/null
+if [ $? -eq 0 ]
+then
+	echoc.sh "Your PC already installed echoc" green bold
+else
+    tar -zxvf echoc.tar.gz
+fi
+
+abPath=$(dirname $(readlink -f $0))
+echo ${abPath}
 cd ${path}
 # create backup directory
 mkdir .AutoLatexBackup
