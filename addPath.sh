@@ -9,5 +9,5 @@ cat << EOF >> ${file}
 
 # AutoLatex Configuration
 export AutoLatex_HOME=${abPath}
-export PATH=\${PATH}:\${AutoLatex_HOME}
+export PATH=\${PATH}:\${AutoLatex_HOME}/bin
 EOF

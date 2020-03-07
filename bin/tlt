@@ -1,0 +1,7 @@
+#!/bin/bash
+command=$1
+para1=$2
+para2=$3
+para3=$4
+
+${AutoLatex_HOME}/${command} ${para1} ${para2} ${para3} ${para4}

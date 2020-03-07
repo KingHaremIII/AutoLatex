@@ -18,7 +18,7 @@ else
 
 		if [[ "$model" == "" ]]; then
 			echoc.sh "Creating a new AutoLatex project..." purple bold
-			touch Env.xml
+			touch Env.xml
 			touch Structure.xml
 			touch README.md
 			mkdir Documents
