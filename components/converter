@@ -1,0 +1,22 @@
+#!/bin/bash
+# convert xml to tex.  
+helpOrNot=$1
+
+if [[ "$helpOrNot" == "" ]]
+then
+	path=$(pwd)
+	if [[ -d ${path} ]]; then
+		cd ${AutoLatex_HOME}/components/
+		java com/takamagahara/ConverterEntry $path
+		# show result
+		tree -c $path/Target
+	else
+		echoc.sh "Wrong Path, check your input. The parameter should be the absolute path of the project. " red subline
+	fi
+else
+	if [[ "$helpOrNot" == "--help" ]]; then
+		echoc.sh "converter to convert xml to tex. " green subline
+	else
+		echoc.sh "Unrecognized parameter "${helpOrNot}" using --help for help. " red flash
+	fi
+fi

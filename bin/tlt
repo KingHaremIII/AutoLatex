@@ -1,7 +1,35 @@
 #!/bin/bash
+# command envrionment of AutoLatex
 command=$1
 para1=$2
 para2=$3
 para3=$4
 
-${AutoLatex_HOME}/components/${command} ${para1} ${para2} ${para3} ${para4}
+if [[ "${command}" == "--help" ]]
+then
+	if [[ "${para1}" != "" ]]
+	then
+		${AutoLatex_HOME}/components/${para1} --help
+	else
+		echoc.sh creater brown subline
+		${AutoLatex_HOME}/components/creater --help
+		echo
+		echoc.sh reflector cyan subline
+		${AutoLatex_HOME}/components/reflector --help
+		echo
+		echoc.sh converger blue subline
+		${AutoLatex_HOME}/components/converger --help
+		echo
+		echoc.sh converter purple subline
+		${AutoLatex_HOME}/components/converter --help
+	fi
+else
+	if [[ "${command}" == "" ]]
+	then
+		echoc.sh "List of commands" red bold
+		echo "--help (for details of creater, reflector, converger and converter. )"
+		ls ${AutoLatex_HOME}/components | grep -v com
+	else
+		${AutoLatex_HOME}/components/${command} ${para1} ${para2} ${para3} ${para4}
+	fi
+fi

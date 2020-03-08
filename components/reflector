@@ -1,16 +1,28 @@
 #!/bin/bash
 # move to project directory
-path=$(pwd)
-if [[ -d ${path} ]]; then
-	cd ${path}
-	# Step 1: git for backup
-	git add .
-	git commit -m "autoGit_reflector_"$(date +%Y-%M-%D)
-	git tag vAutoGit$(date +%Y-%M-%D) -m "This is a auto git by reflector"
-	# Step 2: reflector
-	java ${AutoLatex_HOME}/component/com/takamagahara/ReflectorEntry $path
-	# Step 3: show current structure
-	tree -c $path
+helpOrNot=$1
+
+if [[ "$helpOrNot" == "" ]]
+then
+	path=$(pwd)
+	if [[ -d ${path} ]]; then
+		cd ${path}
+		# Step 1: git for backup
+		git add .
+		git commit -m "autoGit_reflector_"$(date +%Y-%M-%D)
+		git tag vAutoGit$(date +%Y-%M-%D) -m "This is a auto git by reflector"
+		# Step 2: reflector
+		cd ${AutoLatex_HOME}/components/
+		java com/takamagahara/ReflectorEntry $path
+		# Step 3: show current structure
+		tree -c $path/Documents
+	else
+		echoc.sh "Wrong Path, check your input. The parameter should be the absolute path of the project. " red subline
+	fi
 else
-	echoc.sh "Wrong Path, check your input. The parameter should be the absolute path of the project. " red subline
+	if [[ "$helpOrNot" == "--help" ]]; then
+		echoc.sh "reflector for document's structure (Documents) from structure.xml" green subline
+	else
+		echoc.sh "Unrecognized parameter "${helpOrNot}" using --help for help. " red flash
+	fi
 fi

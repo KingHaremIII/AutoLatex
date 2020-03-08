@@ -10,6 +10,7 @@ if [ $? -eq 0 ]
 then
 	echoc.sh "Your PC already installed echoc" green bold
 else
+    tar -zxvf echoc.tar.gz -C ./bin/echoc.sh
     tar -zxvf echoc.tar.gz
 fi
 
