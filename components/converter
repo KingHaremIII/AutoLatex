@@ -7,7 +7,7 @@ then
 	path=$(pwd)
 	if [[ -d ${path} ]]; then
 		cd ${AutoLatex_HOME}/components/
-		java com/takamagahara/ConverterEntry $path
+		java com/takamagahara/converter/ConverterEntry $path
 		# show result
 		tree -c $path/Target
 	else

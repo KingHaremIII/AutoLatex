@@ -13,7 +13,7 @@ then
 		git tag vAutoGit$(date +%Y-%M-%D) -m "This is a auto git by reflector"
 		# Step 2: reflector
 		cd ${AutoLatex_HOME}/components/
-		java com/takamagahara/ReflectorEntry $path
+		java com/takamagahara/reflector/ReflectorEntry $path
 		# Step 3: show current structure
 		tree -c $path/Documents
 	else
