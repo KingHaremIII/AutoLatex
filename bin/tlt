@@ -11,23 +11,23 @@ then
 	then
 		${AutoLatex_HOME}/components/${para1} --help
 	else
-		echoc.sh creater brown subline
+		echoc.sh create brown subline
 		${AutoLatex_HOME}/components/creater --help
 		echo
-		echoc.sh reflector cyan subline
+		echoc.sh reflect cyan subline
 		${AutoLatex_HOME}/components/reflector --help
 		echo
-		echoc.sh converger blue subline
+		echoc.sh converge blue subline
 		${AutoLatex_HOME}/components/converger --help
 		echo
-		echoc.sh converter purple subline
+		echoc.sh convert purple subline
 		${AutoLatex_HOME}/components/converter --help
 	fi
 else
 	if [[ "${command}" == "" ]]
 	then
 		echoc.sh "List of commands" red bold
-		echo "--help (for details of creater, reflector, converger and converter. )"
+		echo "--help (for details of create, reflecto, converge and convert. )"
 		ls ${AutoLatex_HOME}/components | grep -v com
 	else
 		${AutoLatex_HOME}/components/${command} ${para1} ${para2} ${para3} ${para4}

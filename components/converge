@@ -1,8 +1,8 @@
 #!/bin/bash
 # converge xml of environment and structure. 
-helpOrNot=$1
+unitPath=$1
 
-if [[ "$helpOrNot" == "" ]]
+if [[ "$unitPath" == "" ]]
 then
 	path=$(pwd)
 	if [[ -d ${path} ]]; then
@@ -14,9 +14,17 @@ then
 		echoc.sh "Wrong Path, check your input. The parameter should be the absolute path of the project. " red subline
 	fi
 else
-	if [[ "$helpOrNot" == "--help" ]]; then
+	if [[ "$unitPath" == "--help" ]]; then
 		echoc.sh "converger to converge environment and structure xml. " green subline
 	else
-		echoc.sh "Unrecognized parameter "${helpOrNot}" using --help for help. " red flash
+		path=$(pwd)
+		if [[ -d ${path} ]]; then
+			cd ${AutoLatex_HOME}/components/
+			java com/takamagahara/converger/ConvergerEntry $path $unitPath
+			# show result
+			tree -c $path/Target
+		else
+			echoc.sh "Wrong Path, check your input. The parameter should be the absolute path of the project. " red subline
+		fi
 	fi
 fi

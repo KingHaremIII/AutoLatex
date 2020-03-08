@@ -16,32 +16,17 @@ else
 		mkdir ${nameProject}
 		cd ${nameProject}
 
+		libraryPath=${AutoLatex_HOME}/library
 		if [[ "$model" == "" ]]; then
 			echoc.sh "Creating a new AutoLatex project..." purple bold
-			touch Env.xml
-			touch Structure.xml
-			touch README.md
-			mkdir Documents
-			mkdir Target
-			cd Target
-			# pictures, tableTex and algorithmTex
-			mkdir Resources
-			touch ref.bib
+			# Copy the void project from library
+			templatePath=${libraryPath}/templateVoid.tar.gz
 		else
 			echoc.sh "Creating a AutoLatex project from library..." purple bold
 			# Copy the half-completed project from library
-			libraryPath=${AutoLatex_HOME}/library
 			templatePath=${libraryPath}/${model}.tar.gz
-			echo ${templatePath}
-			cp ${templatePath} ${fullPath}
-			tar -zxvf ${model}.tar.gz
-			rm ${model}.tar.gz
-			# -f parameter judge $file exists or not
-			clsPath=${libraryPath}/${model}.cls
-			if [ -f "$clsPath" ]; then
-			 cp ${clsPath} ${fullPath}/Target
-			fi
 		fi
+		tar -zxvf ${templatePath} -C ${fullPath}
 
 		# initialize git
 		which "git" > /dev/null
