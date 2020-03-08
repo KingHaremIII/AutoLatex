@@ -36,7 +36,7 @@ else
 			cp ${templatePath} ${fullPath}
 			tar -zxvf ${model}.tar.gz
 			rm ${model}.tar.gz
-			# -f 参数判断 $file 是否存在
+			# -f parameter judge $file exists or not
 			clsPath=${libraryPath}/${model}.cls
 			if [ -f "$clsPath" ]; then
 			 cp ${clsPath} ${fullPath}/Target
