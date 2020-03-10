@@ -29,7 +29,57 @@ else
 		echoc.sh "List of commands" red bold
 		echo "--help (for details of create, reflecto, converge and convert. )"
 		ls ${AutoLatex_HOME}/components | grep -v com
+	# common command process
 	else
-		${AutoLatex_HOME}/components/${command} ${para1} ${para2} ${para3} ${para4}
+		if [[ "${command}"  == "create" ]]; then
+			${AutoLatex_HOME}/components/create ${para1} ${para2} ${para3} ${para4}
+		elif [[ "${command}"  == "reflect" ]]; then
+			${AutoLatex_HOME}/components/reflect
+		elif [[ "${command}"  == "converge" ]]; then
+			if [[ "${para1}" == "" ]]; then
+				${AutoLatex_HOME}/components/converge
+			# 1) unit test, para1 is unit path; 2) force model
+			elif [[ "${para2}" == "" ]]; then
+				# 1)
+				if [[ "${para1}" != "--force" ]]; then
+					${AutoLatex_HOME}/components/converge ${para1}
+				# 2)
+				else
+					${AutoLatex_HOME}/components/reflect
+					${AutoLatex_HOME}/components/converge
+					echoc.sh "force model, command list: " green subline
+					echoc.sh "reflect" green bold
+					echoc.sh "converge" green bold
+				fi
+			fi
+		elif [[ "${command}" == "convert" ]]; then
+			# no parameters, common model. Convert generated xml file. 
+			if [[ "${para1}" == "" ]]; then
+				${AutoLatex_HOME}/components/convert
+			# force model
+			elif [[ "${para1}" == "--force" ]]; then
+				${AutoLatex_HOME}/components/reflect
+				${AutoLatex_HOME}/components/converge
+				${AutoLatex_HOME}/components/convert
+				echoc.sh "force model, command list: " green subline
+				echoc.sh "reflect" green bold
+				echoc.sh "converge" green bold
+				echoc.sh "convert" green bold
+			# para1 means unit path. (must use force model)
+			elif [[ "${para2}" == "--force" ]]; then
+				${AutoLatex_HOME}/components/reflect
+				${AutoLatex_HOME}/components/converge ${para1}
+				${AutoLatex_HOME}/components/convert
+				echoc.sh "force model, command list: " green subline
+				echoc.sh "reflect" green bold
+				echoc.sh "converge (lunit)" green bold
+				echoc.sh "convert" green bold
+			else
+				echoc.sh "If you want to use unit debug (lunit) of converger in a force way, please attach --force parameter. "
+			fi
+		# incorrect commnad name
+		else
+			echoc.sh "unrecognized command: "${command} red flash,subline
+		fi
 	fi
 fi
