@@ -2,8 +2,7 @@
 # converge xml of environment and structure. 
 unitPath=$1
 
-if [[ "$unitPath" == "" ]]
-then
+if [[ "$unitPath" == "" ]]; then
 	path=$(pwd)
 	if [[ -d ${path} ]]; then
 		cd ${AutoLatex_HOME}/components/

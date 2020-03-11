@@ -1,0 +1,18 @@
+#!/bin/bash
+# This is the shell script to compile .tex quickly under the Target directory of a AutoLatex project. 
+helpOrNot=$1
+
+if [[ "${helpOrNot}" == "" ]]; then
+	cd Target
+	rm *.aux *.bbl *.blg *.log *.pdf
+	pdflatex *.tex
+	bibtex *.aux
+	pdflatex *.tex
+	pdflatex *.tex
+else
+	if [[ "${helpOrNot}" == "--help" ]]; then
+		echoc.sh "compile the .tex to .pdf directly when you use ref.bib. " green bold
+	else
+		echoc.sh "please use --help to get help" red subline
+	fi
+fi

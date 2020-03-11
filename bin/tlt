@@ -12,18 +12,21 @@ then
 		${AutoLatex_HOME}/components/${para1} --help
 	else
 		echoc.sh create brown subline
-		${AutoLatex_HOME}/components/creater --help
+		${AutoLatex_HOME}/components/create --help
 		echo
 		echoc.sh reflect cyan subline
-		${AutoLatex_HOME}/components/reflector --help
+		${AutoLatex_HOME}/components/reflect --help
 		echo
-		echoc.sh converge blue subline
-		${AutoLatex_HOME}/components/converger --help
+		echoc.sh converge white subline
+		${AutoLatex_HOME}/components/converge --help
 		echo
 		echoc.sh convert purple subline
-		${AutoLatex_HOME}/components/converter --help
+		${AutoLatex_HOME}/components/convert --help
+		echoc.sh compile blue subline
+		${AutoLatex_HOME}/components/compile --help
 	fi
 else
+	nameCertif=.rootcertification
 	if [[ "${command}" == "" ]]
 	then
 		echoc.sh "List of commands" red bold
@@ -34,48 +37,66 @@ else
 		if [[ "${command}"  == "create" ]]; then
 			${AutoLatex_HOME}/components/create ${para1} ${para2} ${para3} ${para4}
 		elif [[ "${command}"  == "reflect" ]]; then
-			${AutoLatex_HOME}/components/reflect
+			if [[ -f ${nameCertif} ]]; then
+				${AutoLatex_HOME}/components/reflect
+			else
+				echoc.sh "Not legal directory! Make sure you conduct command under a AutoLatex project or check whether the project injured. " red flash
+			fi
 		elif [[ "${command}"  == "converge" ]]; then
-			if [[ "${para1}" == "" ]]; then
-				${AutoLatex_HOME}/components/converge
-			# 1) unit test, para1 is unit path; 2) force model
-			elif [[ "${para2}" == "" ]]; then
-				# 1)
-				if [[ "${para1}" != "--force" ]]; then
-					${AutoLatex_HOME}/components/converge ${para1}
-				# 2)
-				else
+			if [[ -f ${nameCertif} ]]; then
+				if [[ "${para1}" == "" ]]; then
+					${AutoLatex_HOME}/components/converge
+				# 1) unit test, para1 is unit path; 2) force model
+				elif [[ "${para2}" == "" ]]; then
+					# 1)
+					if [[ "${para1}" != "--force" ]]; then
+						${AutoLatex_HOME}/components/converge ${para1}
+					# 2)
+					else
+						${AutoLatex_HOME}/components/reflect
+						${AutoLatex_HOME}/components/converge
+						echoc.sh "force model, command list: " green subline
+						echoc.sh "reflect" green bold
+						echoc.sh "converge" green bold
+					fi
+				fi
+			else
+				echoc.sh "Not legal directory! Make sure you conduct command under a AutoLatex project or check whether the project injured. " red flash
+			fi
+		elif [[ "${command}" == "convert" ]]; then
+			if [[ -f ${nameCertif} ]]; then
+				# no parameters, common model. Convert generated xml file. 
+				if [[ "${para1}" == "" ]]; then
+					${AutoLatex_HOME}/components/convert
+				# force model
+				elif [[ "${para1}" == "--force" ]]; then
 					${AutoLatex_HOME}/components/reflect
 					${AutoLatex_HOME}/components/converge
+					${AutoLatex_HOME}/components/convert
 					echoc.sh "force model, command list: " green subline
 					echoc.sh "reflect" green bold
 					echoc.sh "converge" green bold
+					echoc.sh "convert" green bold
+				# para1 means unit path. (must use force model)
+				elif [[ "${para2}" == "--force" ]]; then
+					${AutoLatex_HOME}/components/reflect
+					${AutoLatex_HOME}/components/converge ${para1}
+					${AutoLatex_HOME}/components/convert
+					echoc.sh "force model, command list: " green subline
+					echoc.sh "reflect" green bold
+					echoc.sh "converge (lunit)" green bold
+					echoc.sh "convert" green bold
+				else
+					echoc.sh "If you want to use unit debug (lunit) of converger in a force way, please attach --force parameter. "
 				fi
-			fi
-		elif [[ "${command}" == "convert" ]]; then
-			# no parameters, common model. Convert generated xml file. 
-			if [[ "${para1}" == "" ]]; then
-				${AutoLatex_HOME}/components/convert
-			# force model
-			elif [[ "${para1}" == "--force" ]]; then
-				${AutoLatex_HOME}/components/reflect
-				${AutoLatex_HOME}/components/converge
-				${AutoLatex_HOME}/components/convert
-				echoc.sh "force model, command list: " green subline
-				echoc.sh "reflect" green bold
-				echoc.sh "converge" green bold
-				echoc.sh "convert" green bold
-			# para1 means unit path. (must use force model)
-			elif [[ "${para2}" == "--force" ]]; then
-				${AutoLatex_HOME}/components/reflect
-				${AutoLatex_HOME}/components/converge ${para1}
-				${AutoLatex_HOME}/components/convert
-				echoc.sh "force model, command list: " green subline
-				echoc.sh "reflect" green bold
-				echoc.sh "converge (lunit)" green bold
-				echoc.sh "convert" green bold
 			else
-				echoc.sh "If you want to use unit debug (lunit) of converger in a force way, please attach --force parameter. "
+				echoc.sh "Not legal directory! Make sure you conduct command under a AutoLatex project or check whether the project injured. " red flash
+			fi
+		elif [[ "${command}" == "compile" ]]; then
+			if [[ -f ${nameCertif} ]]; then
+				${AutoLatex_HOME}/components/compile
+				else
+				echoc.sh "Not legal directory! Make sure you conduct command under a AutoLatex project or check whether the project injured. " red flash
 			fi
 		# incorrect commnad name
 		else
