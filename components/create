@@ -9,7 +9,14 @@ then
 	echo "input the name of new project for first parameter and the path for the second parameter."
 else
 	if [[ "${path}" == "" ]]; then
-		echoc.sh "error: path is needed!" red subline
+		echoc.sh "Warning: path is void! create your new project under current direcotry? (y/n)" red subline
+		read key
+		if [[ "${key}" == "y" ]]; then
+			path=$(pwd)
+		fi
+	fi
+	if [[ "${path}" == "" ]]; then
+		echoc.sh "exit" red subline
 	else
 		fullPath=${path}/${nameProject}
 		cd ${path}
