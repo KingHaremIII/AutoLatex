@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- 由 Microsoft Visio 11.0, SVG Export, v1.0 生成 ThreeCoreComponent.svg ThreeCoreComponent -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="5.90551in"
+		height="1.5748in" viewBox="0 0 425.197 113.386" xml:space="preserve" color-interpolation-filters="sRGB" class="st8">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ff0000;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st2 {fill:#000000;font-family:宋体;font-size:1.16666em}
+		.st3 {fill:#00b050;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st4 {fill:#000000;font-family:宋体;font-size:1.00001em}
+		.st5 {fill:#0070c0;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st6 {fill:#ffff00;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st7 {fill:#00b0f0;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st8 {fill:none;fill-rule:evenodd;font-size:12;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>ThreeCoreComponents</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="连接线" v:index="0"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(11.3386,-14.1732)">
+			<title>圆角矩形</title>
+			<desc>Reflector</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="42.5197" cy="70.8661" width="85.04" height="85.0394"/>
+			<path d="M70.87 113.39 A14.1733 14.1733 -180 0 0 85.04 99.21 L85.04 42.52 A14.1733 14.1733 -180 0 0 70.87 28.35 L14.17
+						 28.35 A14.1733 14.1733 -180 0 0 0 42.52 L0 99.21 A14.1733 14.1733 -180 0 0 14.17 113.39 L70.87 113.39 Z"
+					class="st1"/>
+			<text x="11.02" y="75.07" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Reflector</text>		</g>
+		<g id="shape2-4" v:mID="2" v:groupContext="shape" transform="translate(167.244,-14.1732)">
+			<title>圆角矩形.2</title>
+			<desc>Converger</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="42.5197" cy="70.8661" width="85.04" height="85.0394"/>
+			<path d="M70.87 113.39 A14.1733 14.1733 -180 0 0 85.04 99.21 L85.04 42.52 A14.1733 14.1733 -180 0 0 70.87 28.35 L14.17
+						 28.35 A14.1733 14.1733 -180 0 0 0 42.52 L0 99.21 A14.1733 14.1733 -180 0 0 14.17 113.39 L70.87 113.39 Z"
+					class="st3"/>
+			<text x="15.52" y="74.47" class="st4" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Converger</text>		</g>
+		<g id="shape3-7" v:mID="3" v:groupContext="shape" transform="translate(323.15,-14.1732)">
+			<title>圆角矩形.3</title>
+			<desc>Converter</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="42.5197" cy="70.8661" width="85.04" height="85.0394"/>
+			<path d="M70.87 113.39 A14.1733 14.1733 -180 0 0 85.04 99.21 L85.04 42.52 A14.1733 14.1733 -180 0 0 70.87 28.35 L14.17
+						 28.35 A14.1733 14.1733 -180 0 0 0 42.52 L0 99.21 A14.1733 14.1733 -180 0 0 14.17 113.39 L70.87 113.39 Z"
+					class="st5"/>
+			<text x="15.52" y="74.47" class="st4" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Converter</text>		</g>
+		<g id="shape4-10" v:mID="4" v:groupContext="shape" transform="translate(167.244,-36.8504) scale(-1,1)">
+			<title>45 度单向箭头</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<path d="M0 93.54 L19.84 73.7 L19.84 86.8 L70.87 86.8 L70.87 100.29 L19.84 100.29 L19.84 113.39 L0 93.54 Z" class="st6"/>
+		</g>
+		<g id="shape5-12" v:mID="5" v:groupContext="shape" transform="translate(323.15,-36.8504) scale(-1,1)">
+			<title>45 度单向箭头.5</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<path d="M0 93.54 L19.84 73.7 L19.84 86.8 L70.87 86.8 L70.87 100.29 L19.84 100.29 L19.84 113.39 L0 93.54 Z" class="st7"/>
+		</g>
+	</g>
+</svg>
